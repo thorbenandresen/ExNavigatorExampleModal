@@ -35,13 +35,13 @@ let YourRouter = {
   // },
 
 
-  getAppRoute() {
+  getAppRoute(openModal) {
     return {
       // Return a React component class for the scene. It receives a prop
       // called `navigator` that you can use to push on more routes.
       renderScene(navigator) {
         let App =  require('./app');
-        return <App openModal={this.openModal}/>
+        return <App openModal={openModal}/>
 
       },
 

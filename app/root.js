@@ -7,7 +7,7 @@
 var React = require('react-native');
 
 import ExNavigator from '@exponent/react-native-navigator';
-import cloneReferencedElement from 'react-native-clone-referenced-element';
+
 
 var Button = require('react-native-button');
 var YourRouter = require('./router.js');
@@ -33,21 +33,18 @@ class Component extends  React.Component {
   }
 
   openModal() {
-    console.log("Hello form Open Modal");
+    console.log("Hello from Open Modal");
     this.setState({modal: true})
   }
 
-  augmentScene(scene) {
-  return cloneReferencedElement(scene, {...this.props});
-}
 
   render () {
     return (
 
       <View style={styles.container}>
         <ExNavigator
-          augmentScene={this.augmentScene.bind(this)}
-          initialRoute={YourRouter.getAppRoute()}
+
+          initialRoute={YourRouter.getAppRoute(this.openModal.bind(this))}
           style={{ flex: 1 }}
           sceneStyle={{ paddingTop: 64 }}
         />
