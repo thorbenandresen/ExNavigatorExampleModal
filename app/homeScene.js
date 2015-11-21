@@ -3,6 +3,8 @@
 'use strict';
 
 var React = require('react-native');
+var Button = require('react-native-button');
+var YourRouter = require('./router.js');
 
 var {
   AppRegistry,
@@ -56,9 +58,28 @@ class component extends Component {
 
       return (
         <View style={styles.flexCenter}>
+          <Button onPress={() => {
+            // Get a route object from the router
+            let profile = {
+              name: 'Jane',
+              photoUrl: 'http://api.randomuser.me/portraits/thumb/women/39.jpg',
+            };
+            let route = YourRouter.getProfileRoute(profile);
+
+            // `navigator` is passed into your scene component when you have
+            // implemented getSceneClass in your route
+            this.props.navigator.push(route);
+          }}>
+            Navigate to a profile
+          </Button>
+          <Button onPress={this.props.openModal}>Open Modal</Button>
+
+          {/*
           <TouchableOpacity onPress={this.props.openModal}>
             <Text>Open Modal</Text>
           </TouchableOpacity>
+          */}
+
         </View>
 
       )

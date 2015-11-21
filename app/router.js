@@ -35,15 +35,17 @@ let YourRouter = {
   // },
 
 
-  getAppRoute(openModal) {
+  getHomeRoute(openModal) {
     return {
       // Return a React component class for the scene. It receives a prop
       // called `navigator` that you can use to push on more routes.
       renderScene(navigator) {
-        let App =  require('./app');
-        return <App openModal={openModal}/>
+        let App =  require('./homeScene');
+        return <App openModal={openModal} navigator={navigator}/>
 
       },
+
+
 
       // When this scene receives focus, you can run some code. We're just
       // proxying the `didfocus` event that Navigator emits, so refer to
@@ -62,50 +64,50 @@ let YourRouter = {
   },
 
 
-  // getProfileRoute(profile) {
-  //   return {
-  //     // You can also render a scene yourself when you need more control over
-  //     // the props of the scene component
-  //     renderScene(navigator) {
-  //       let ProfileScene = require('./profileScene');
-  //       return <ProfileScene navigator={navigator} profile={profile} />;
-  //     },
-  //
-  //     // There are onWillBlur and onDidBlur events when the scene loses focus.
-  //     // These events occur when another scene will focus or did focus,
-  //     // respectively. The difference between "will" and "did" is the start and
-  //     // end of the scene transition.
-  //     onDidBlur(event) {
-  //       console.log(`Profile Scene for ${profile} lost focus.`);
-  //     },
-  //
-  //     // You can render arbitrary views for the title component. Note that you
-  //     // also need to implement getTitle if you want the title of this route to
-  //     // show up in the back button to it.
-  //     renderTitle() {
-  //       return (
-  //         <View style={styles.container}>
-  //           <Image source={{uri: profile.photoUrl}} style={styles.titlePhoto} />
-  //           <Text style={styles.titleName}>{profile.name}</Text>
-  //         </View>
-  //       );
-  //     },
-  //
-  //     getTitle() {
-  //       return profile.name;
-  //     },
-  //
-  //     // Render the view to display on the right side of the navigation bar. It
-  //     // is typically a button but doesn't have to be.
-  //     renderRightButton() {
-  //       return (
-  //         <Button onPress={() => { console.log('Tapped right button'); }}>
-  //           Log
-  //         </Button>
-  //       );
-  //     },
-  //   };
-  // },
+  getProfileRoute(profile) {
+    return {
+      // You can also render a scene yourself when you need more control over
+      // the props of the scene component
+      renderScene(navigator) {
+        let ProfileScene = require('./profileScene');
+        return <ProfileScene navigator={navigator} profile={profile} />;
+      },
+
+      // There are onWillBlur and onDidBlur events when the scene loses focus.
+      // These events occur when another scene will focus or did focus,
+      // respectively. The difference between "will" and "did" is the start and
+      // end of the scene transition.
+      onDidBlur(event) {
+        console.log(`Profile Scene for ${profile} lost focus.`);
+      },
+
+      // You can render arbitrary views for the title component. Note that you
+      // also need to implement getTitle if you want the title of this route to
+      // show up in the back button to it.
+      renderTitle() {
+        return (
+          <View style={styles.container}>
+            <Image source={{uri: profile.photoUrl}} style={styles.titlePhoto} />
+            <Text style={styles.titleName}>{profile.name}</Text>
+          </View>
+        );
+      },
+
+      getTitle() {
+        return profile.name;
+      },
+
+      // Render the view to display on the right side of the navigation bar. It
+      // is typically a button but doesn't have to be.
+      renderRightButton() {
+        return (
+          <Button onPress={() => { console.log('Tapped right button'); }}>
+            Log
+          </Button>
+        );
+      },
+    };
+  },
 };
 
 var styles = {

@@ -28,7 +28,7 @@ class Component extends  React.Component {
       super(props)
 
       this.state = {
-        modal: true,
+        modal: false,
       }
   }
 
@@ -44,7 +44,7 @@ class Component extends  React.Component {
       <View style={styles.container}>
         <ExNavigator
 
-          initialRoute={YourRouter.getAppRoute(this.openModal.bind(this))}
+          initialRoute={YourRouter.getHomeRoute(this.openModal.bind(this))}
           style={{ flex: 1 }}
           sceneStyle={{ paddingTop: 64 }}
         />

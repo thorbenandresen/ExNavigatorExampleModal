@@ -1,6 +1,6 @@
-# ExNavigatorExample - With TopModal
+# ExNavigatorExample - With top modal
 
-Basic runnable Example of https://github.com/exponentjs/ex-navigator
+Basic runnable example of [ExNavigator](https://github.com/exponentjs/ex-navigator) with a [top modal](http://browniefed.com/blog/2015/10/18/react-native-easy-overlay-modal-with-navigator/)
 
 ##Install
 
