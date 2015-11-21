@@ -55,7 +55,7 @@ class component extends Component {
       return (
         <Animated.View style={[styles.modal, styles.flexCenter, {transform: [{translateY: this.state.offset}]}]}>
           <TouchableOpacity onPress={this.closeModal.bind(this)}>
-            <Text style={{color: '#FFF',textAlign: 'center'}}>Close Menu {'\n'} (You could place another ExNavigator here)</Text>
+            <Text style={{color: '#FFF',textAlign: 'center'}}>Close Modal {'\n'} (You could place another ExNavigator here)</Text>
           </TouchableOpacity>
         </Animated.View>
 
